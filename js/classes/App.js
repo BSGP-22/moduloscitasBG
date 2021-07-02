@@ -1,6 +1,6 @@
 
 import { datosCita, nuevaCita } from '../funciones.js';
-import { mascotaInput, propietarioInput, telefonoInput, fechaInput, horaInput, sintomasInput, formulario } from '../selectores.js';
+import { mascotaInput, propietarioInput, telefonoInput, fechaInput, horaInput, CostosInput, sintomasInput, formulario } from '../selectores.js';
 
 class App {
     constructor() {
@@ -16,6 +16,7 @@ class App {
             telefonoInput.addEventListener('change', datosCita);
             fechaInput.addEventListener('change', datosCita);
             horaInput.addEventListener('change', datosCita);
+            CostosInput.addEventListener('change', datosCita);
             sintomasInput.addEventListener('change', datosCita);
 
             // Formulario nuevas citas
