@@ -1,6 +1,6 @@
 import Citas from './classes/Citas.js'
 import UI from './classes/UI.js'
-import { mascotaInput, propietarioInput, telefonoInput, fechaInput, horaInput, sintomasInput, formulario } from './selectores.js';
+import { mascotaInput, propietarioInput, telefonoInput, fechaInput, horaInput, CostosInput, sintomasInput, formulario } from './selectores.js';
 
 
 const ui = new UI();
@@ -12,6 +12,7 @@ const citaObj = {
     telefono: '',
     fecha: '',
     hora:'',
+    Costos:'',
     sintomas: ''
 }
 
@@ -27,10 +28,10 @@ export function datosCita(e) {
 export function nuevaCita(e) {
     e.preventDefault();
 
-    const {mascota, propietario, telefono, fecha, hora, sintomas } = citaObj;
+    const {mascota, propietario, telefono, fecha, hora, Costos, sintomas } = citaObj;
 
     // Validar
-    if( mascota === '' || propietario === '' || telefono === '' || fecha === ''  || hora === '' || sintomas === '' ) {
+    if( mascota === '' || propietario === '' || telefono === '' || fecha === ''  || hora === '' || Costos ==='' || sintomas === '' ) {
         ui.imprimirAlerta('Todos los mensajes son Obligatorios', 'error')
 
         return;
@@ -78,6 +79,7 @@ export function reiniciarObjeto() {
     citaObj.telefono = '';
     citaObj.fecha = '';
     citaObj.hora = '';
+    citaObj.Costos = '';
     citaObj.sintomas = '';
 }
 
@@ -90,7 +92,7 @@ export function eliminarCita(id) {
 
 export function cargarEdicion(cita) {
 
-    const {mascota, propietario, telefono, fecha, hora, sintomas, id } = cita;
+    const {mascota, propietario, telefono, fecha, hora, Costos, sintomas, id } = cita;
 
     // Reiniciar el objeto
     citaObj.mascota = mascota;
@@ -98,6 +100,7 @@ export function cargarEdicion(cita) {
     citaObj.telefono = telefono;
     citaObj.fecha = fecha
     citaObj.hora = hora;
+    citaObj.Costos = Costos;
     citaObj.sintomas = sintomas;
     citaObj.id = id;
 
@@ -107,6 +110,7 @@ export function cargarEdicion(cita) {
     telefonoInput.value = telefono;
     fechaInput.value = fecha;
     horaInput.value = hora;
+    CostosInput.value = Costos;
     sintomasInput.value = sintomas;
 
     formulario.querySelector('button[type="submit"]').textContent = 'Guardar Cambios';
